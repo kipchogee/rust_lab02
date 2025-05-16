@@ -1,0 +1,11 @@
+# 忽略本地克隆的 egui_graphs 仓库
+egui_graphs/
+
+# 忽略 Cargo 的构建输出目录 (通常在你的 my_lab2_vis 项目内)
+# 为了保险起见，也可以在这里全局忽略，但更常见的是在 Cargo 项目内部的 .gitignore 中处理
+# target/
+# Cargo.lock # Cargo.lock 通常是需要提交的，除非有特殊原因
+
+# 其他你不想提交的临时文件或IDE配置文件等
+.DS_Store
+*.log
