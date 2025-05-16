@@ -1,11 +1,25 @@
 [package]
-name = "my_graph_vis"
+name = "my_lab2_vis"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-eframe = "0.25.0"
-egui = "0.25.0"
-egui_graphs = { path = "../egui_graphs" }
-petgraph = "0.6"
-winapi = { version = "0.3", features = ["winuser", "windef"] }
+egui = { version = "0.31.0", features = ["persistence"] } # 我们也只启用 persistence，或者可以尝试 default-features = true
+
+
+eframe = { version = "0.31.0", default-features = true, features = ["persistence","glow"] }
+
+petgraph = { version = "0.8.0", default-features = false, features = [ # 或者 "0.8.x" 如果 egui_graphs 用的是0.8
+    "graphmap",
+    "stable_graph",
+    "matrix_graph",
+    "serde-1",
+] }
+
+
+egui_graphs = { git = "https://github.com/blitzarx1/egui_graphs.git", rev = "1226d4115f1a6458070fc82706483ff77c2c38ab" }
+
+
+[target.'cfg(windows)'.dependencies.winapi]
+version = "0.3.9" # 暂时保留这个版本，看是否能解决，如果不行需要更新
+features = ["winuser", "libloaderapi", "windowsx", "dwmapi", "shellapi", "ole2", "shobjidl_core", "dbt"]
