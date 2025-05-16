@@ -1,6 +1,11 @@
 [package]
 name = "my_graph_vis"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
+eframe = "0.25.0"
+egui = "0.25.0"
+egui_graphs = { path = "../egui_graphs" }
+petgraph = "0.6"
+winapi = { version = "0.3", features = ["winuser", "windef"] }
